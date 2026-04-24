@@ -134,17 +134,17 @@ async function generateResultCard({ nickname, oldTier, newTier, testerName, test
 
   // Draw skin зліва великий виходить за низ
   if (skinTexture) {
-    const scale = 13;
+    const scale = 15;
     const skinTotalH = 32 * scale;
-    const skinX = 30;
-    const skinY = H - skinTotalH + 30;
+    const skinX = 10;
+    const skinY = H - skinTotalH + 20;
 
     // Watermark
     ctx.save();
     ctx.globalAlpha = 0.05;
     ctx.fillStyle = '#ffffff';
     ctx.font = 'bold 110px Noto';
-    ctx.fillText(newTier, 20, H - 10);
+    ctx.fillText(newTier, 10, H - 10);
     ctx.globalAlpha = 1;
     ctx.restore();
 
@@ -154,37 +154,37 @@ async function generateResultCard({ nickname, oldTier, newTier, testerName, test
   // TOP LEFT title
   ctx.fillStyle = 'rgba(255,255,255,0.5)';
   ctx.font = '16px Noto';
-  ctx.fillText('Результат тиртеста', 260, 54);
+  ctx.fillText('Результат тиртеста', 220, 54);
 
   // Nickname
   ctx.fillStyle = '#ffffff';
   ctx.font = 'bold 44px Noto';
-  ctx.fillText(nickname, 260, 106);
+  ctx.fillText(nickname, 220, 106);
 
   // Server card
   ctx.fillStyle = 'rgba(255,255,255,0.07)';
-  roundRect(ctx, 260, 120, 230, 60, 12);
+  roundRect(ctx, 220, 120, 230, 60, 12);
   ctx.fill();
 
   if (creeperImg) {
     ctx.save();
     ctx.beginPath();
-    ctx.roundRect(274, 132, 36, 36, 8);
+    ctx.roundRect(234, 132, 36, 36, 8);
     ctx.clip();
-    ctx.drawImage(creeperImg, 274, 132, 36, 36);
+    ctx.drawImage(creeperImg, 234, 132, 36, 36);
     ctx.restore();
   } else {
     ctx.fillStyle = KIT_COLOR;
-    ctx.fillRect(274, 132, 36, 36);
+    ctx.fillRect(234, 132, 36, 36);
   }
 
   ctx.fillStyle = '#ffffff';
   ctx.font = 'bold 13px Noto';
-  ctx.fillText('Дрянный СабТирс', 320, 148);
+  ctx.fillText('Дрянный СабТирс', 278, 148);
   ctx.fillStyle = 'rgba(255,255,255,0.45)';
   ctx.font = '12px Noto';
   const now = new Date();
-  ctx.fillText(`${now.getDate()} ${now.toLocaleString('ru',{month:'long'})} ${now.getFullYear()} г.`, 320, 167);
+  ctx.fillText(`${now.getDate()} ${now.toLocaleString('ru',{month:'long'})} ${now.getFullYear()} г.`, 278, 167);
 
   // Previous tier
   ctx.fillStyle = 'rgba(255,255,255,0.5)';
